@@ -1,0 +1,20 @@
+---
+# Service for allowing external user to access the result frontend
+apiVersion: v1
+kind: Service
+metadata: 
+  name: result-service
+  labels: 
+    name: result-service
+    app: demo-voting-app
+spec:
+  type: NodePort # Opens up the specified port for external traffic
+  ports: 
+    - port: 80
+      targetPort: 80
+      nodePort: 30005
+  selector: 
+    name: result-app-pod
+    app: demo-voting-app
+# end of this file
+...

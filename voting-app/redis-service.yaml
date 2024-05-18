@@ -1,0 +1,20 @@
+---
+# This Service is for allowing internal traffic to reach our redis server
+# allowing internal communication between redis, voting and worker app 
+apiVersion: v1
+kind: Service
+metadata: 
+  name: redis # This name is used in the voting and worker app, so we have to use this specific name
+  labels: 
+    name: redis-service
+    app: demo-voting-app
+spec:
+  type: ClusterIP # Internal service not going to be exposed to the outside network
+  ports:
+    - port: 6397
+      targetPort: 6397
+  selector: 
+    name: redis-pod
+    app: demo-voting-app
+# end of this file
+...

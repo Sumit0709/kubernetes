@@ -1,0 +1,17 @@
+---
+# Pod for voting app frontend
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: voting-app-pod
+  labels: 
+    name: voting-app-pod
+    app: demo-voting-app
+spec:
+  containers:
+    - name: voting-app-pod
+      image: kodekloud/examplevotingapp_vote:v1
+      ports:
+        - containerPort: 80
+# end of this file
+...

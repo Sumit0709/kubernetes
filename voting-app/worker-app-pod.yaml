@@ -1,0 +1,16 @@
+---
+# Pod for worker service
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: worker-app-pod
+  labels: 
+    name: worker-app-pod
+    app: demo-voting-app
+spec:
+  containers:
+    - name: worker-app-pod
+      image: kodekloud/examplevotingapp_worker:v1
+      # we are not defining PORT here because no service is listening to this worker app
+# end of this file
+...
